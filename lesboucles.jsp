@@ -27,7 +27,6 @@
 </p>
 
 <h2>Exercice 1 : Le carré d'étoiles</h2>
-<p>Ecrire le code afin de produire un carré d'étoile</p>
 <p style="font-family: monospace;">
 <% for(int i=1; i<=cpt; i++){ 
      for(int j=1; j<=cpt; j++){ %>*<% } %><br/>
@@ -35,7 +34,6 @@
 </p>
 
 <h2>Exercice 2 : Triangle rectangle gauche</h2>
-<p>Ecrire le code afin de produire un triangle rectangle aligné sur la gauche</p>
 <p style="font-family: monospace;">
 <% for(int i=1; i<=cpt; i++){
      for(int j=1; j<=i; j++){ %>*<% } %><br/>
@@ -43,7 +41,6 @@
 </p>
 
 <h2>Exercice 3 : Triangle rectangle inversé</h2>
-<p>Ecrire le code afin de produire un triangle rectangle inversé aligné sur la gauche</p>
 <p style="font-family: monospace;">
 <% for(int i=cpt; i>=1; i--){
      for(int j=1; j<=i; j++){ %>*<% } %><br/>
@@ -51,7 +48,6 @@
 </p>
 
 <h2>Exercice 4 : Triangle rectangle aligné à droite</h2>
-<p>Ecrire le code afin de produire un triangle rectangle aligné sur la droite</p>
 <p style="font-family: monospace;">
 <% for(int i=1;i<=cpt;i++){
      for(int espace=cpt-i; espace>0; espace--) {%>&nbsp;<%}
@@ -60,7 +56,6 @@
 </p>
 
 <h2>Exercice 5 : Triangle isocèle (variante du triangle droit)</h2>
-<p>Ecrire le code afin de produire un triangle rectangle aligné sur la droite (variante)</p>
 <p style="font-family: monospace;">
 <% for(int i=1;i<=cpt;i++){
      for(int espace=cpt-i; espace>0; espace--) {%>&nbsp;<%}
@@ -69,23 +64,35 @@
 </p>
 
 <h2>Exercice 6 : Le demi-losange</h2>
-<p>Ecrire le code afin de produire un demi-losange</p>
 <p style="font-family: monospace;">
 <!-- Partie haute -->
-<% for(int i = 1; i <= cpt; i++) {
-     for(int espace = cpt - i; espace > 0 ; espace--) {%>&nbsp;<%}
-     for(int etoile = 1 ; etoile <= i ; etoile++) {%>*<%}%><br/>
-   }
-   // Partie basse
-   for(int i = cpt ; i >= 1 ; i--) {
-     for(int espace = cpt - i ; espace > 0 ; espace--) {%>&nbsp;<%}
-     for(int etoile = 1 ; etoile <= i ; etoile++) {%>*<%}%><br/>
-   }
+<%
+for (int i = 1; i <= cpt; i++) {
+    for (int espace = cpt - i; espace > 0 ; espace--) {
+        out.print("&nbsp;");
+    }
+    for (int etoile = 1 ; etoile <= i ; etoile++) {
+        out.print("*");
+    }
+    out.println("<br/>");
+}
+%>
+
+<!-- Partie basse -->
+<%
+for (int i = cpt - 1 ; i >= 1 ; i--) {
+    for (int espace = cpt - i ; espace > 0 ; espace--) {
+        out.print("&nbsp;");
+    }
+    for (int etoile = 1 ; etoile <= i ; etoile++) {
+        out.print("*");
+    }
+    out.println("<br/>");
+}
 %>
 </p>
 
 <h2>Exercice 7 : La table de multiplication</h2>
-<p>Ecrire le code afin de créer une table de multiplication du nombre saisi :</p>
 <p style="font-family: monospace;">
 <%
 for (int i=1;i<=cpt;i++){ 
