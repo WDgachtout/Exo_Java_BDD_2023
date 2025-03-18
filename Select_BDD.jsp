@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Connexion à MariaDB via JSP</title>
+    <title>Connexion à MariaDB via JSP</title> 
 </head>
 <body>
     <h1>Exemple de connexion à MariaDB avec JSP</h1>
