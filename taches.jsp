@@ -1,33 +1,35 @@
-<%@ page import="java.util.ArrayList, com.example.taskmanager.Task" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.HashMap" %>
+
 <%
-ArrayList<Task> tasks = (ArrayList<Task>) session.getAttribute("tasks");
-if (tasks == null) {
-    tasks = new ArrayList<>();
-}
+    ArrayList<HashMap<String, String>> tasks = (ArrayList<HashMap<String, String>>) session.getAttribute("tasks");
 %>
 
-<!DOCTYPE html>
 <html>
 <head>
-    <title>Liste des Tâches</title>
+    <title>Mes tâches</title>
 </head>
 <body>
-    <h1>Liste des Tâches</h1>
+    <h2>Liste des tâches</h2>
 
-    <% if (tasks.isEmpty()) { %>
-        <p>Aucune tâche disponible.</p>
-    <% } else { %>
-        <ul>
-            <% for (Task task : tasks) { %>
-                <li><strong><%= task.getTitle() %></strong>: 
-                    <%= task.getDescription() %> - Échéance : <%= task.getDueDate() %> 
-                    [<a href="completeTask?index=<%= tasks.indexOf(task) %>">Terminer</a>] 
-                    [<a href="deleteTask?index=<%= tasks.indexOf(task) %>">Supprimer</a>]
-                </li>
-            <% } %>
-        </ul>
-    <% } %>
+    <%
+        if (tasks == null || tasks.isEmpty()) {
+    %>
+        <p>Aucune tâche enregistrée.</p>
+    <%
+        } else {
+            for (HashMap<String, String> task : tasks) {
+    %>
+        <div style="border:1px solid #ccc; padding:10px; margin-bottom:10px;">
+            <strong><%= task.get("title") %></strong><br>
+            <em><%= task.get("description") %></em>
+        </div>
+    <%
+            }
+        }
+    %>
 
-    <a href="addTask.jsp">Ajouter une nouvelle tâche</a>
+    <a href="index.jsp">← Retour à l’ajout</a>
 </body>
 </html>
