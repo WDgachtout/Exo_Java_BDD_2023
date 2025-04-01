@@ -1,44 +1,29 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="java.util.HashMap" %>
-
-<%
-    // Récupération des tâches depuis la session
-    ArrayList<HashMap<String, String>> tasks = (ArrayList<HashMap<String, String>>) session.getAttribute("tasks");
-
-    if (tasks == null) {
-        tasks = new ArrayList<>();
-        session.setAttribute("tasks", tasks);
-    }
-
-    // Traitement du formulaire si envoyé
-    String title = request.getParameter("title");
-    String description = request.getParameter("description");
-
-    if (title != null && description != null && !title.isEmpty() && !description.isEmpty()) {
-        HashMap<String, String> task = new HashMap<>();
-        task.put("title", title);
-        task.put("description", description);
-        tasks.add(task);
-    }
-%>
-
 <html>
 <head>
-    <title>Ajouter une tâche</title>
+<title>Java</title>
+<meta charset="UTF-8">
 </head>
-<body>
-    <h2>Ajouter une tâche</h2>
-    <form method="post" action="index.jsp">
-        <label>Titre :</label><br>
-        <input type="text" name="title" required><br><br>
-        <label>Description :</label><br>
-        <textarea name="description" required></textarea><br><br>
-        <input type="submit" value="Ajouter la tâche">
-    </form>
+<body bgcolor=white>
 
-    <hr>
+<table border="0">
+<tr>
+<td>
+</td>
+<td>
+<h1>Exercices de programmation en JSP (Java)</h1>
+<p>Ceci est votre page d'exercices Java : REBAS Yanis
+</td>
+</tr>
+</table>
+<h2>Liste de vos exercices</h2>
+<p>
+<ol>
+<li>Série d'exercices sur les boucles : <a href="lesboucles.jsp"> Les boucles</a>
+<li>Série d'exercices sur les conditions : <a href="lesconditions.jsp"> Les conditions</a>
+<li>Série d'exercices sur les chaines de caractères : <a href="leschaines.jsp"> Les String</a>
+<li>Série d'exercices sur les tableaux : <a href="lestableaux.jsp"> Les tableaux</a>
+<li>Série d'exercices sur les Bases de Données : <a href="Select_BDD.jsp"> Travailler avec une Base de Données</a>
+</ol>
 
-    <a href="tasks.jsp">Voir la liste des tâches</a>
 </body>
 </html>
